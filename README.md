@@ -1,3 +1,6 @@
+# Información de las variables:
+
+
 | column               | Description                                      | Description (translate)                                      | var_type            | dtype           | null_pct | example_value        |
 |----------------------|--------------------------------------------------|--------------------------------------------------------------|---------------------|-----------------|----------|----------------------|
 | year                 | Year of flight                                   | Año                                                          | numérica-discreta   | Int64           | 0        | 2024                 |
@@ -35,3 +38,41 @@
 | nas_delay            | National Air System delay in minutes             | Retraso por gestión del espacio aéreo                        | numérica-continua   | int64           | 0        | 0                    |
 | security_delay       | Security delay in minutes                        | Retraso por controles de seguridad                           | numérica-continua   | int64           | 0        | 0                    |
 | late_aircraft_delay  | Late aircraft delay in minutes                   | Retraso por vuelos pasados                                   | numérica-continua   | int64           | 0        | 0                    |
+
+
+# Consideraciones iniciales del análisis exploratorio de datos (EDA)
+
+En el conjunto de datos se identificaron valores nulos. Para facilitar su manejo, se calculó la proporción de datos faltantes en cada variable. En este sentido, la variable **`cancellation_code`** presenta un **98.64% de valores nulos**, por lo que se decidió eliminarla.  
+Adicionalmente, se consideró retirar las variables **`cancelled`** y **`year`** en la etapa inicial del análisis.
+
+---
+
+## Variables con valores nulos
+
+Además de `cancellation_code`, se contabilizaron **12 variables con valores nulos**.  
+Este subconjunto se denominó **`missing_values`**. En dichas variables, la proporción de valores nulos no supera el **2%**, lo que plantea la siguiente pregunta:
+
+> **¿Qué tipo de imputación estadística es más adecuada para completar estos valores nulos en el dataset?**
+
+---
+
+## Propuestas de imputación
+
+### 1. Métodos básicos
+- **Visualizaciones**: analizar la distribución de las variables numéricas continuas antes de decidir la imputación.  
+- **Moda**: útil para variables categóricas.  
+- **Moda en numéricas discretas**: puede ser considerada como alternativa.
+
+### 2. Métodos avanzados
+- **Regresión lineal**: estimar valores faltantes a partir de relaciones con otras variables.  
+- **KNN Imputer**: imputación basada en vecinos más cercanos.
+
+### 3. Métodos basados en reglas
+- **Imputación condicional**: usar medidas estadísticas por grupo (ej. por aerolínea o mes).  
+- **Valores constantes**: asignar un valor fijo (ej. 0 en retrasos).  
+- **Forward/Backward fill**: rellenar con valores anteriores o posteriores en series temporales.
+
+---
+
+
+
