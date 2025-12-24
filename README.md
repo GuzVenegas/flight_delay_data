@@ -1,39 +1,37 @@
-Información sobre el data set
-
-| column               | translate                                           | dtype           | null_pct | example_value        |
-|----------------------|-----------------------------------------------------|-----------------|----------|----------------------|
-| year                 | Año                                                 | Int64           | 0        | 2024                 |
-| month                | Mes                                                 | Int64           | 0        | 1                    |
-| day_of_month         | Día del mes                                         | Int64           | 0        | 1                    |
-| day_of_week          | Día de la semana                                    | Int64           | 0        | 1                    |
-| fl_date              | Fecha del vuelo                                     | datetime64[ns]  | 0        | 01/01/2024 00:00     |
-| op_unique_carrier    | Código único que identifica aerolínea               | object          | 0        | 9E                   |
-| op_carrier_fl_num    | Número de vuelo                                     | float64         | 0        | 4814                 |
-| origin               | Origen del vuelo                                    | object          | 0        | JFK                  |
-| origin_city_name     | Ciudad donde se origina el despegue                 | object          | 0        | New York, NY         |
-| origin_state_nm      | Estado                                              | object          | 0        | New York             |
-| dest                 | Destino                                             | object          | 0        | DTW                  |
-| dest_city_name       | Ciudad destino                                      | object          | 0        | Detroit, MI          |
-| dest_state_nm        | Estado destino                                      | object          | 0        | Michigan             |
-| crs_dep_time         | Hora programada para el despegue                    | Int64           | 0        | 1252                 |
-| dep_time             | Hora real de despegue                               | float64         | 1.31     | 1247                 |
-| dep_delay            | Retraso en la hora de despegue                      | float64         | 1.31     | -5                   |
-| taxi_out             | Recorrido por la pista mientras despega             | float64         | 1.35     | 31                   |
-| wheels_off           | Momento en que el avión termina recorrido y despega | float64         | 1.35     | 1318                 |
-| wheels_on            | Momento en que el avión inicia recorrido al aterrizar| float64        | 1.38     | 1442                 |
-| taxi_in              | Recorrido por la pista durante el aterrizaje        | float64         | 1.38     | 7                    |
-| crs_arr_time         | Horario programado para aterrizaje                  | Int64           | 0        | 1508                 |
-| arr_time             | Hora real de llegada del vuelo                      | float64         | 1.38     | 1449                 |
-| arr_delay            | Retraso de llegada del vuelo                        | float64         | 1.61     | -19                  |
-| cancelled            | Vuelo cancelado                                     | int64           | 0        | 0                    |
-| cancellation_code    | Código de cancelación                               | object          | 98.64    | B                    |
-| diverted             | Cambio de ruta durante el vuelo                     | int64           | 0        | 0                    |
-| crs_elapsed_time     | Tiempo programado del trayecto                      | float64         | 0        | 136                  |
-| actual_elapsed_time  | Tiempo total del trayecto                           | float64         | 1.61     | 122                  |
-| air_time             | Tiempo de vuelo                                     | float64         | 1.61     | 84                   |
-| distance             | Distancia                                           | float64         | 0        | 509                  |
-| carrier_delay        | Retraso de aerolínea                                | int64           | 0        | 0                    |
-| weather_delay        | Retrasos por clima                                  | int64           | 0        | 0                    |
-| nas_delay            | Retraso por gestión del espacio aéreo               | int64           | 0        | 0                    |
-| security_delay       | Retraso por controles de seguridad                  | int64           | 0        | 0                    |
-| late_aircraft_delay  | Retraso por vuelos anteriores del avión             | int64           | 0        | 0                    |
+| column               | Description                                      | Description (translate)                                      | var_type            | dtype           | null_pct | example_value        |
+|----------------------|--------------------------------------------------|--------------------------------------------------------------|---------------------|-----------------|----------|----------------------|
+| year                 | Year of flight                                   | Año                                                          | numérica-discreta   | Int64           | 0        | 2024                 |
+| month                | Month of flight (1–12)                           | Mes                                                          | numérica-discreta   | Int64           | 0        | 1                    |
+| day_of_month         | Day of the month                                 | Día del mes                                                  | numérica-discreta   | Int64           | 0        | 1                    |
+| day_of_week          | Day of week (1=Monday … 7=Sunday)                | Día de la semana                                             | numérica-discreta   | Int64           | 0        | 1                    |
+| fl_date              | Flight date (YYYY-MM-DD)                         | Fecha del vuelo                                              | numérica-discreta   | datetime64[ns]  | 0        | 01/01/2024 00:00     |
+| op_unique_carrier    | Unique carrier code                              | Código único que identifica aerolínea                        | categórica          | object          | 0        | 9E                   |
+| op_carrier_fl_num    | Flight number for reporting airline              | Número de vuelo                                              | numérica-discreta   | float64         | 0        | 4814                 |
+| origin               | Origin airport code                              | Origen del vuelo                                             | categórica          | object          | 0        | JFK                  |
+| origin_city_name     | Origin city name                                 | Ciudad donde se origina el despegue                          | categórica          | object          | 0        | New York, NY         |
+| origin_state_nm      | Origin state name                                | Estado                                                       | categórica          | object          | 0        | New York             |
+| dest                 | Destination airport code                         | Destino                                                      | categórica          | object          | 0        | DTW                  |
+| dest_city_name       | Destination city name                            | Ciudad destino                                               | categórica          | object          | 0        | Detroit, MI          |
+| dest_state_nm        | Destination state name                           | Estado destino                                               | categórica          | object          | 0        | Michigan             |
+| crs_dep_time         | Scheduled departure time (local, hhmm)           | Hora programada para el despegue                             | numérica-continua   | Int64           | 0        | 1252                 |
+| dep_time             | Actual departure time (local, hhmm)              | Hora real de despegue                                        | numérica-continua   | float64         | 1.31     | 1247                 |
+| dep_delay            | Departure delay in minutes (negative if early)   | Retraso en la hora de despegue                               | numérica-continua   | float64         | 1.31     | -5                   |
+| taxi_out             | Taxi out time in minutes                         | Recorrido por la pista mientras despega                      | numérica-continua   | float64         | 1.35     | 31                   |
+| wheels_off           | Wheels-off time (local, hhmm)                    | Momento en el que el avión termina recorrido y despega       | numérica-continua   | float64         | 1.35     | 1318                 |
+| wheels_on            | Wheels-on time (local, hhmm)                     | Momento en el que el avión comienza recorrido al aterrizar   | numérica-continua   | float64         | 1.38     | 1442                 |
+| taxi_in              | Taxi in time in minutes                          | Recorrido por la pista durante el aterrizaje                 | numérica-continua   | float64         | 1.38     | 7                    |
+| crs_arr_time         | Scheduled arrival time (local, hhmm)             | Horario programado para aterrizaje                           | numérica-continua   | Int64           | 0        | 1508                 |
+| arr_time             | Actual arrival time (local, hhmm)                | Hora real de llegada del vuelo                               | numérica-continua   | float64         | 1.38     | 1449                 |
+| arr_delay            | Arrival delay in minutes (negative if early)     | Retraso de llegada del vuelo                                 | numérica-continua   | float64         | 1.61     | -19                  |
+| cancelled            | Cancelled flight indicator (0=No, 1=Yes)         | Vuelo cancelado                                              | boolean             | int64           | 0        | 0                    |
+| cancellation_code    | Reason for cancellation (if cancelled)           | Código de cancelación                                        | categórica          | object          | 98.64    | B                    |
+| diverted             | Diverted flight indicator (0=No, 1=Yes)          | Cambio de ruta durante el vuelo                              | boolean             | int64           | 0        | 0                    |
+| crs_elapsed_time     | Scheduled elapsed time in minutes                | Tiempo programado del trayecto                               | numérica-continua   | float64         | 0        | 136                  |
+| actual_elapsed_time  | Actual elapsed time in minutes                   | Tiempo total del trayecto                                    | numérica-continua   | float64         | 1.61     | 122                  |
+| air_time             | Flight time in minutes                           | Tiempo de vuelo                                              | numérica-continua   | float64         | 1.61     | 84                   |
+| distance             | Distance between origin and destination (miles)  | Distancia                                                    | numérica-continua   | float64         | 0        | 509                  |
+| carrier_delay        | Carrier-related delay in minutes                 | Retraso de aerolínea                                         | numérica-continua   | int64           | 0        | 0                    |
+| weather_delay        | Weather-related delay in minutes                 | Retrasos por clima                                           | numérica-continua   | int64           | 0        | 0                    |
+| nas_delay            | National Air System delay in minutes             | Retraso por gestión del espacio aéreo                        | numérica-continua   | int64           | 0        | 0                    |
+| security_delay       | Security delay in minutes                        | Retraso por controles de seguridad                           | numérica-continua   | int64           | 0        | 0                    |
+| late_aircraft_delay  | Late aircraft delay in minutes                   | Retraso por vuelos pasados                                   | numérica-continua   | int64           | 0        | 0                    |
